@@ -46,7 +46,6 @@ public class SpaceRockGUI extends Application implements IncomingListener
     private static final int DEFAULT_SECTOR_HEIGHT = 200;
     private final DebrisProcessor processor = new DebrisProcessor();
     private final Connection netLink = new Connection();
-    private final DummySat satellite = new DummySat();
     private TextArea terminalText;
     private PerspectiveCamera viewCamera;
     private Group rockGroup = new Group();
@@ -89,7 +88,6 @@ public class SpaceRockGUI extends Application implements IncomingListener
     public void start(Stage stage) throws Exception
     {
         SubScene view = createView();
-        satellite.start();
         netLink.addIncomingListener(this);
         netLink.connectToDummySat();
         netLink.sendCameraSpec(0, DEFAULT_SECTOR_HEIGHT, DEFAULT_SECTOR_WIDTH, false, false);//starting the camera off and in automatic mode
